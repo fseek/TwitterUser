@@ -21,7 +21,7 @@
  *
  */
 
-require('twitteruser.php');
+require('../twitteruser.php');
 
 $title = '';
 $info = array();
