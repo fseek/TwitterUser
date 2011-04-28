@@ -21,7 +21,7 @@
  *
  */
 
-require("twitteruser.php");
+require("../twitteruser.php");
 
 $user = new TwitterUser("bbc");
 
