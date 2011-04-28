@@ -39,7 +39,7 @@ class TwitterUser
 	 *
 	 * The Twitter Id of this instance
 	 */
-	public $id;
+	public $username;
 	
 	/*! @brief The constructor of TwitterUser
 	 * @param[in] twitterId The Id of the twitter user to use for the instance of this class. Without an @ sign
@@ -105,7 +105,7 @@ class TwitterUser
 	 */
 	private function downloadUserInfo()
 	{
-		$this->userInfo = $this->downloadJSON('http://twitter.com/users/show.json?screen_name='.$this->id);	  
+		$this->userInfo = $this->downloadJSON('http://twitter.com/users/show.json?screen_name='.$this->username);	  
 	}
 
 	/*! @brief Returns Twitter information as an array
@@ -128,7 +128,7 @@ class TwitterUser
 	public function getStatus($hyperlinks = false)
 	{
 		$curl = curl_init();
-		curl_setopt($curl, CURLOPT_URL, 'http://twitter.com/statuses/user_timeline/'.$this->id.'.xml?count=1');
+		curl_setopt($curl, CURLOPT_URL, 'http://twitter.com/statuses/user_timeline/'.$this->username.'.xml?count=1');
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 		$source = curl_exec($curl);
 		curl_close($curl);
