@@ -26,6 +26,9 @@ require("../twitteruser.php");
 $user = new TwitterUser("bbc");
 
 
-print($user->screen_name);
+echo $user->screenName.'\n';
 
-print_r($user->asArray());
+for ($user->asArray() as $var)
+{
+	echo $var.'\n';
+}
