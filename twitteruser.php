@@ -39,7 +39,7 @@ class TwitterUser
 	 *
 	 * The Twitter Id of this instance
 	 */
-	public $id;
+	public $username;
 	
 	/*! @brief The constructor of TwitterUser
 	 * @param[in] twitterId The Id of the twitter user to use for the instance of this class. Without an @ sign
@@ -105,15 +105,7 @@ class TwitterUser
 	 */
 	private function downloadUserInfo()
 	{
-		$this->userInfo = $this->downloadJSON('http://twitter.com/users/show.json?screen_name='.$this->id);	  
-	}
-
-	/*! @brief Deprecated
-	 *
-	 * Does nothing, all vars are loaded in the constructor now
-	 */
-	public function getAllVars()
-	{
+		$this->userInfo = $this->downloadJSON('http://twitter.com/users/show.json?screen_name='.$this->username);	  
 	}
 
 	/*! @brief Returns Twitter information as an array
@@ -127,17 +119,6 @@ class TwitterUser
 		return $this->userInfo;
 	}
 
-	/*! @brief Deprecated
-	 * @return The returned value of $instance->followers
-	 *
-	 * Deprecated, use $instance->followers instead
-	 */
-	public function getFollowers()
-	{
-		return $this->followers;
-	}
-
-
 	/*! @brief Returns the last status of the Twitter user
 	 * @return A string with the last status
 	 *
@@ -150,8 +131,7 @@ class TwitterUser
 		if ($add_hyperlinks)
 		{
 			$status = preg_replace('[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/]', '<a href="%5C%22%5C%5C0%5C%22"></a>', $status);
-		}
-		
+		}		
 		return $status;
 	}
 }
