@@ -1,3 +1,0 @@
-<?php
-
-require('../twitteruser.php');
