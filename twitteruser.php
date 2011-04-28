@@ -23,8 +23,12 @@
 
 /*! \mainpage
  * \section intro_sec Introduction
- * TwitterUser is a simple PHP class for accessing
- *
+ * TwitterUser is a simple PHP class for accessing information on twitter users.
+ * It supports all the returned data from twitter. The project has a minimalistic
+ * approach and we don't include features that you don't *really* need. The library
+ * is stand-alone and has no dependencies other than PHP json support. The library
+ * does not cache request because  caching belongs in the view layer rather than in
+ * the data layer.
 */
 
 
