@@ -31,31 +31,14 @@ class TwitterUser
 	
 	public function getAllVars()
 	{
-		$userInfo = file_get_contents('http://twitter.com/users/show.xml?screen_name='.$this->id);
-		if (preg_match('/followers_count>(.*)</', $userInfo, $match))
-		{
-			$this->followers = $match[1];
-		}
-		if (preg_match('/name>(.*)</', $userInfo, $match))
-		{
-			$this->name = $match[1];
-		}
-		if (preg_match('/screen_name>(.*)</', $userInfo, $match))
-		{
-			$this->screenName = $match[1];
-		}
-		if (preg_match('/description>(.*)</', $userInfo, $match))
-		{
-			$this->description = $match[1];
-		}
-		if (preg_match('/location>(.*)</', $userInfo, $match))
-		{
-			$this->location = $match[1];
-		}
-		if (preg_match('/profile_image_url>(.*)</', $userInfo, $match))
-		{
-			$this->profileImage = $match[1];
-		}
+	  $userInfo = json_decode(file_get_contents('http://twitter.com/users/show.json?screen_name='.$this->id),true);
+	  $this->followers = $userInfo['followers_count'];
+	  $this->name = $userInfo['name'];
+	  $this->screenName = $userInfo['screen_name'];
+	  $this->description = $userInfo['description'];
+	  $this->location = $userInfo['location'];
+	  $this->profileImage = $userInfo['profile_image_url'];
+
 	}
 	
 	public function getFollowers()
