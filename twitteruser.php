@@ -2,13 +2,26 @@
 
 class HTTPDownloadException extends Exception{}
 
+/*! @class TwitterUser
+ * @brief This class represents a user on twitter
+ * 
+ * This class is used for getting information of an twitter user,
+ * e.g. how much followers he has
+ */
 class TwitterUser
 {
   private static $alias = array('followers' => 'followers_count',
 			  'screeName' => 'screen_name',
 			  'profileImage' => 'profile_image_url');
+  /*! @brief Twitter Id
+   *
+   * The Twitter Id of this instance
+   */
   public $id;
 	
+	/*! @brief The constructor of TwitterUser
+	 * @param[in] twitterId The Id of the twitter user to use for the instance of this class
+	 */
 	public function __construct($twitterId)
 	{
 	  try {
@@ -21,6 +34,13 @@ class TwitterUser
 	  
 	}
 	
+	/*! @brief Downloads an parses JSON files
+	 * @param[in] url The URL of the JSON file
+	 * @return An array which content is the downloaded JSON file
+	 *
+	 * This method downloads a JSON file from the given URL
+	 * and parses it into an array.
+	 */
 	private function downloadJSON($url)
 	{
 	  $data = file_get_contents($url);
@@ -51,23 +71,41 @@ class TwitterUser
 	 return null;
        }
   
-
+	/*! @brief Loads user information from Twitter
+	 * @return The information of the Twitter user
+	 *
+	 * Loads the user information from Twitter,
+	 * called in the constructor
+	 */
 	private function downloadUserInfo()
 	{
 	  $this->userInfo = $this->downloadJSON('http://twitter.com/users/show.json?screen_name='.$this->id);	  
 	}
 
-	// deprecated: no longer does anything. downloading of vars is done in the constructor
+	/*! @brief Deprecated
+	 *
+	 * Does nothing, all vars are loaded in the constructor now
+	 */
 	public function getAllVars()
 	{
 	}
 
+	/*! @brief Returns Twitter information as an array
+	 * @return An array with the information of this Twitter user
+	 *
+	 * This method returns the Twitter information of this
+	 * class as an array.
+	 */
 	public function asArray()
 	{
 	  return $this->userInfo;
 	}
 
-	// deprecated use $instance->followers instead.
+	/*! @brief Deprecated
+	 * @return The returned value of $instance->followers
+	 *
+	 * Deprecated, use $instance->followers instead
+	 */
 	public function getFollowers()
 	{
 	  return $this->followers;
@@ -75,7 +113,12 @@ class TwitterUser
 
 	
 
-
+	/*! @brief Returns the last status of the Twitter user
+	 * @return A string with the last status
+	 *
+	 * This method loads the last status of this Twitter user
+	 * from Twitter and returns it as a string
+	 */
 	public function getStatus($hyperlinks = false)
 	{
 		$curl = curl_init();
