@@ -48,7 +48,7 @@ class TwitterUser
 	{
 		try 
 		{
-			$this->id = $twitterId;
+			$this->username = $twitterId;
 			$this->downloadUserInfo();
 		} 
 		catch (HTTPDownloadException $e) 
