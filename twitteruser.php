@@ -39,7 +39,7 @@ class TwitterUser
 	 *
 	 * The Twitter Id of this instance
 	 */
-	public $username;
+	protected $username;
 	
 	/*! @brief The constructor of TwitterUser
 	 * @param[in] twitterId The Id of the twitter user to use for the instance of this class. Without an @ sign
