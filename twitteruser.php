@@ -38,7 +38,7 @@ class TwitterUser
 	  } catch (HTTPDownloadException $e) {
 	    throw new Exception("Could not download user information");
 	  }
-	  print_r(TwitterUser::$alias);
+
 	  
 	}
 	
