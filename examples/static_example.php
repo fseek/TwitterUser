@@ -25,10 +25,5 @@ require("../twitteruser.php");
 
 $user = new TwitterUser("bbc");
 
-
-echo $user->screenName.'\n';
-
-foreach ($user->asArray() as $var)
-{
-	echo $var.'\n';
-}
+print($user->screenName);
+print_r($user->asArray());
