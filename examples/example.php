@@ -43,8 +43,7 @@ if (isset($_GET['id']))
 		exit;
 	}
 	
-	$user->getAllVars();
-	$title = 'Info for "'.$user->id.'"';
+	$title = 'Info for "'.$user->username.'"';
 	$info['profile_image'] = $user->profileImage;
 	$info['name'] = $user->name;
 	$info['screen_name'] = $user->screenName;
@@ -116,7 +115,7 @@ else
 			</tr>
 		</table>
 		<?php } else { ?>
-		<form action="twitter.php" method="get" target="_self">
+		<form action="example.php" method="get" target="_self">
 			<p>
 				Twitter ID: <input type="text" name="id" required /><br />
 				<input type="submit" value="Submit" />
