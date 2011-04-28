@@ -33,7 +33,7 @@ class HTTPDownloadException extends Exception{}
 class TwitterUser
 {
 	private static $alias = array('followers' => 'followers_count',
-								'screeName' => 'screen_name',
+								'screenName' => 'screen_name',
 								'profileImage' => 'profile_image_url');
 	/*! @brief Twitter Id
 	 *
@@ -84,12 +84,12 @@ class TwitterUser
 			return $this->$prop;
 		} 
 	 
-		if (array_key_exists($prop,$this->userInfo)) 
+		if (array_key_exists($prop, $this->userInfo)) 
 		{
 			return $this->userInfo[$prop];
 		}
 
-		if(array_key_exists($prop,TwitterUser::$alias))
+		if(array_key_exists($prop, TwitterUser::$alias))
 		{
 			return $this->userInfo[TwitterUser::$alias[$prop]];
 		}
