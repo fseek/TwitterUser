@@ -4,8 +4,10 @@ class HTTPDownloadException extends Exception{}
 
 class TwitterUser
 {
-	public $id, $followers, $name, $screenName, $location,
-				$description, $profileImage;
+  private static $alias = array('followers' => 'followers_count',
+			  'screeName' => 'screen_name',
+			  'profileImage' => 'profile_image_url');
+  public $id;
 	
 	public function __construct($twitterId)
 	{
@@ -15,6 +17,7 @@ class TwitterUser
 	  } catch (HTTPDownloadException $e) {
 	    throw new Exception("Could not download user information");
 	  }
+	  print_r(TwitterUser::$alias);
 	  
 	}
 	
@@ -30,16 +33,28 @@ class TwitterUser
 	    }
 	}
 
+       function __get($prop)
+       {
+	 if(isset($this->$prop)) {
+	   return $this->$prop;
+	 } 
+	 
+	 if (array_key_exists($prop,$this->userInfo)) {
+	   return $this->userInfo[$prop];
+	 }
+
+	 if(array_key_exists($prop,TwitterUser::$alias))
+	   {
+	     return $this->userInfo[TwitterUser::$alias[$prop]];
+	   }
+
+	 return null;
+       }
+  
+
 	private function downloadUserInfo()
 	{
-	  $userInfo = $this->downloadJSON('http://twitter.com/users/show.json?screen_name='.$this->id);
-	  $this->followers = $userInfo['followers_count'];
-	  $this->name = $userInfo['name'];
-	  $this->screenName = $userInfo['screen_name'];
-	  $this->description = $userInfo['description'];
-	  $this->location = $userInfo['location'];
-	  $this->profileImage = $userInfo['profile_image_url'];
-	  
+	  $this->userInfo = $this->downloadJSON('http://twitter.com/users/show.json?screen_name='.$this->id);	  
 	}
 
 	// deprecated: no longer does anything. downloading of vars is done in the constructor
@@ -47,12 +62,20 @@ class TwitterUser
 	{
 	}
 
+	public function asArray()
+	{
+	  return $this->userInfo;
+	}
+
 	// deprecated use $instance->followers instead.
 	public function getFollowers()
 	{
 	  return $this->followers;
 	}
+
 	
+
+
 	public function getStatus($hyperlinks = false)
 	{
 		$curl = curl_init();
