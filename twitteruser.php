@@ -113,7 +113,7 @@ class TwitterUser
 	protected $username;
 	
 	/*! @brief The constructor of TwitterUser
-	 * @param[in] twitterId The username of the user for the represented by this instance. no @-sign
+	 * @param[in] $twitterId The username of the user for the represented by this instance. no @-sign
 	 */
 	public function __construct($twitterId)
 	{
@@ -129,7 +129,7 @@ class TwitterUser
 	}
 	
 	/*! @brief Downloads and parses a JSON file
-	 * @param[in] url The URL of the JSON file
+	 * @param[in] $url The URL of the JSON file
 	 * @return An array which content is the downloaded JSON file
 	 * 
 	 * This method downloads a JSON file from the given URL
@@ -191,6 +191,7 @@ class TwitterUser
 	}
 
 	/*! @brief Returns the latest status of the Twitter user
+	 * @param[in] $add_hyperlinks Whether getStatus() should turn links into clickable hyperlinks
 	 * @return A string with the latest status
 	 *
 	 * This method loads the latest status of this Twitter user
