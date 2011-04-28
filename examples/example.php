@@ -50,6 +50,7 @@ if (isset($_GET['id']))
 	$info['location'] = $user->location;
 	$info['followers'] = $user->followers;
 	$info['description'] = $user->description;
+	$info['status'] = $user->getStatus();
 	
 	$shouldDisplayInfo = true;
 }
@@ -112,6 +113,10 @@ else
 			<tr>
 				<td style="text-align: right;">Description</td>
 				<td style="max-width: 300px;"><?php echo $info['description']; ?></td>
+			</tr>
+			<tr>
+				<td style="text-align: right;">Status</td>
+				<td style="max-width: 300px;"><?php echo $info['status']; ?></td>
 			</tr>
 		</table>
 		<?php } else { ?>
