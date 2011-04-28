@@ -125,21 +125,13 @@ class TwitterUser
 	 * This method loads the last status of this Twitter user
 	 * from Twitter and returns it as a string
 	 */
-	public function getStatus($hyperlinks = false)
+	public function getStatus($add_hyperlinks = false)
 	{
-		$curl = curl_init();
-		curl_setopt($curl, CURLOPT_URL, 'http://twitter.com/statuses/user_timeline/'.$this->username.'.xml?count=1');
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-		$source = curl_exec($curl);
-		curl_close($curl);
-		preg_match('/<text>(.*)<\/text>/', $source, $match);
-		$status = utf8_decode($match[1]);
-		
-		if ($hyperlinks)
+	  $status = $this->userInfo['status']['text'];
+		if ($add_hyperlinks)
 		{
 			$status = preg_replace('[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/]', '<a href="%5C%22%5C%5C0%5C%22"></a>', $status);
-		}
-		
+		}		
 		return $status;
 	}
 }
