@@ -31,28 +31,29 @@ class HTTPDownloadException extends Exception{}
  */
 class TwitterUser
 {
-  private static $alias = array('followers' => 'followers_count',
-			  'screeName' => 'screen_name',
-			  'profileImage' => 'profile_image_url');
-  /*! @brief Twitter Id
-   *
-   * The Twitter Id of this instance
-   */
-  public $id;
+	private static $alias = array('followers' => 'followers_count',
+								'screeName' => 'screen_name',
+								'profileImage' => 'profile_image_url');
+	/*! @brief Twitter Id
+	 *
+	 * The Twitter Id of this instance
+	 */
+	public $id;
 	
 	/*! @brief The constructor of TwitterUser
 	 * @param[in] twitterId The Id of the twitter user to use for the instance of this class
 	 */
 	public function __construct($twitterId)
 	{
-	  try {
-	    $this->id = $twitterId;
-	    $this->downloadUserInfo();
-	  } catch (HTTPDownloadException $e) {
-	    throw new Exception("Could not download user information");
-	  }
-
-	  
+		try 
+		{
+			$this->id = $twitterId;
+			$this->downloadUserInfo();
+		} 
+		catch (HTTPDownloadException $e) 
+		{
+			throw new Exception("Could not download user information");
+		}  
 	}
 	
 	/*! @brief Downloads an parses JSON files
@@ -64,33 +65,36 @@ class TwitterUser
 	 */
 	private function downloadJSON($url)
 	{
-	  $data = file_get_contents($url);
-	  if($data)
-	    {
-	      return json_decode($data,true);
-	    } else
-	    {
-	      throw new HTTPDownloadException();
-	    }
+		$data = file_get_contents($url);
+		if($data)
+		{
+			return json_decode($data,true);
+		} 
+		else
+		{
+			throw new HTTPDownloadException();
+		}
 	}
 
-       function __get($prop)
-       {
-	 if(isset($this->$prop)) {
-	   return $this->$prop;
-	 } 
+	function __get($prop)
+	{
+		if(isset($this->$prop)) 
+		{
+			return $this->$prop;
+		} 
 	 
-	 if (array_key_exists($prop,$this->userInfo)) {
-	   return $this->userInfo[$prop];
-	 }
+		if (array_key_exists($prop,$this->userInfo)) 
+		{
+			return $this->userInfo[$prop];
+		}
 
-	 if(array_key_exists($prop,TwitterUser::$alias))
-	   {
-	     return $this->userInfo[TwitterUser::$alias[$prop]];
-	   }
+		if(array_key_exists($prop,TwitterUser::$alias))
+		{
+			return $this->userInfo[TwitterUser::$alias[$prop]];
+		}
 
-	 return null;
-       }
+		return null;
+	}
   
 	/*! @brief Loads user information from Twitter
 	 * @return The information of the Twitter user
@@ -100,7 +104,7 @@ class TwitterUser
 	 */
 	private function downloadUserInfo()
 	{
-	  $this->userInfo = $this->downloadJSON('http://twitter.com/users/show.json?screen_name='.$this->id);	  
+		$this->userInfo = $this->downloadJSON('http://twitter.com/users/show.json?screen_name='.$this->id);	  
 	}
 
 	/*! @brief Deprecated
@@ -119,7 +123,7 @@ class TwitterUser
 	 */
 	public function asArray()
 	{
-	  return $this->userInfo;
+		return $this->userInfo;
 	}
 
 	/*! @brief Deprecated
@@ -129,7 +133,7 @@ class TwitterUser
 	 */
 	public function getFollowers()
 	{
-	  return $this->followers;
+		return $this->followers;
 	}
 
 	
