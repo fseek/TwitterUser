@@ -1,5 +1,7 @@
 <?php
 
+class HTTPDownloadException extends Exception{}
+
 class TwitterUser
 {
 	public $id, $followers, $name, $screenName, $location,
@@ -7,50 +9,48 @@ class TwitterUser
 	
 	public function __construct($twitterId)
 	{
-		if ($this->idExists($twitterId))
-		{
-			$this->id = $twitterId;
-		}
-		else
-		{
-			throw new Exception("Sorry, but it seems like this id doesn't exist.");
-		}
+	  try {
+	    $this->id = $twitterId;
+	    $this->downloadUserInfo();
+	  } catch (HTTPDownloadException $e) {
+	    throw new Exception("Could not download user information");
+	  }
+	  
 	}
 	
-	private function idExists($twitterId)
+	private function downloadJSON($url)
 	{
-		if (@file_get_contents('http://twitter.com/users/show.xml?screen_name='.$twitterId))
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+	  $data = file_get_contents($url);
+	  if($data)
+	    {
+	      return json_decode($data,true);
+	    } else
+	    {
+	      throw new HTTPDownloadException();
+	    }
 	}
-	
-	public function getAllVars()
+
+	private function downloadUserInfo()
 	{
-	  $userInfo = json_decode(file_get_contents('http://twitter.com/users/show.json?screen_name='.$this->id),true);
+	  $userInfo = $this->downloadJSON('http://twitter.com/users/show.json?screen_name='.$this->id);
 	  $this->followers = $userInfo['followers_count'];
 	  $this->name = $userInfo['name'];
 	  $this->screenName = $userInfo['screen_name'];
 	  $this->description = $userInfo['description'];
 	  $this->location = $userInfo['location'];
 	  $this->profileImage = $userInfo['profile_image_url'];
-
+	  
 	}
-	
+
+	// deprecated: no longer does anything. downloading of vars is done in the constructor
+	public function getAllVars()
+	{
+	}
+
+	// deprecated use $instance->followers instead.
 	public function getFollowers()
 	{
-		$xml = file_get_contents('http://twitter.com/users/show.xml?screen_name='.$this->id);
-		
-		if (preg_match('/followers_count>(.*)</', $xml, $match))
-		{
-			$followers['count'] = $match[1];
-		}
-		
-		return $followers['count'];
+	  return $this->followers;
 	}
 	
 	public function getStatus($hyperlinks = false)
