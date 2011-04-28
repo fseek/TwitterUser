@@ -127,10 +127,10 @@ class TwitterUser
 	 */
 	public function getStatus($add_hyperlinks = false)
 	{
-	  $status = $this->userInfo['status']['text'];
+		$status = $this->userInfo['status']['text'];
 		if ($add_hyperlinks)
 		{
-			$status = preg_replace('[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/]', '<a href="%5C%22%5C%5C0%5C%22"></a>', $status);
+			$status = preg_replace("#(^|[^\"=]{1})(http://|ftp://|mailto:|https://)([^\s<>]+)([\s\n<>]|$)#sm", "\\1<a target=\"_blank\" href=\"\\2\\3\">\\3</a>\\4", $status);
 		}		
 		return $status;
 	}
