@@ -45,24 +45,24 @@
  * (String) "description",<BR>
  * (Object) "status"<BR>
  * {<BR>
- * 	    (String) "text",<BR>
- * 	    (Boolean) "truncated",<BR>
- * 	    (?) "place",<BR>
- * 	    (?) "coordinates",<BR>
- * 	    (Boolean) "favorited",<BR>
- * 	    (String) "id_str",<BR>
- * 	    (Integer) "retweet_count",<BR>
- * 	    (String) "source",<BR>
- * 	    (String) "created_at",<BR>
- * 	    (?) "geo",<BR>
- * 	    (String) "in_reply_to_screen_name",<BR>
- * 	    (String) "in_reply_to_status_id_str",<BR>
- * 	    (Array) "contributors",<BR>
- * 	    (Boolean) "retweeted",<BR>
- * 	    (Integer) "in_reply_to_status_id",<BR>
- * 	    (String) "in_reply_to_user_id_str",<BR>
- * 	    (Integer) "in_reply_to_user_id",<BR>
- * 	    (Integer, somehow) "id" <BR>
+ * 	&nbsp;&nbsp;&nbsp;&nbsp;(String) "text",<BR>
+ * 	&nbsp;&nbsp;&nbsp;&nbsp;(Boolean) "truncated",<BR>
+ * 	&nbsp;&nbsp;&nbsp;&nbsp;(?) "place",<BR>
+ * 	&nbsp;&nbsp;&nbsp;&nbsp;(?) "coordinates",<BR>
+ * 	&nbsp;&nbsp;&nbsp;&nbsp;(Boolean) "favorited",<BR>
+ * 	&nbsp;&nbsp;&nbsp;&nbsp;(String) "id_str",<BR>
+ * 	&nbsp;&nbsp;&nbsp;&nbsp;(Integer) "retweet_count",<BR>
+ * 	&nbsp;&nbsp;&nbsp;&nbsp;(String) "source",<BR>
+ * 	&nbsp;&nbsp;&nbsp;&nbsp;(String) "created_at",<BR>
+ * 	&nbsp;&nbsp;&nbsp;&nbsp;(?) "geo",<BR>
+ * 	&nbsp;&nbsp;&nbsp;&nbsp;(String) "in_reply_to_screen_name",<BR>
+ * 	&nbsp;&nbsp;&nbsp;&nbsp;(String) "in_reply_to_status_id_str",<BR>
+ * 	&nbsp;&nbsp;&nbsp;&nbsp;(Array) "contributors",<BR>
+ * 	&nbsp;&nbsp;&nbsp;&nbsp;(Boolean) "retweeted",<BR>
+ * 	&nbsp;&nbsp;&nbsp;&nbsp;(Integer) "in_reply_to_status_id",<BR>
+ * 	&nbsp;&nbsp;&nbsp;&nbsp;(String) "in_reply_to_user_id_str",<BR>
+ * 	&nbsp;&nbsp;&nbsp;&nbsp;(Integer) "in_reply_to_user_id",<BR>
+ * 	&nbsp;&nbsp;&nbsp;&nbsp;(Integer, somehow) "id" <BR>
  * },<BR>
  * (String) "profile_background_image_url",<BR>
  * (String) "url",<BR>
