@@ -28,21 +28,21 @@ class HTTPDownloadException extends Exception{}
  *
  * You can get all the values that twitter returns
  * This class is used for getting information of an twitter user,
- * e.g. how much followers he has
+ * e.g. how many followers he has.
  */
 class TwitterUser
 {
 	private static $alias = array('followers' => 'followers_count',
 								'screenName' => 'screen_name',
 								'profileImage' => 'profile_image_url');
-	/*! @brief Twitter Id
+	/*! @brief username on twitter
 	 *
-	 * The Twitter Id of this instance
+	 * The user's username on twitter without an @-sign
 	 */
 	protected $username;
 	
 	/*! @brief The constructor of TwitterUser
-	 * @param[in] twitterId The Id of the twitter user to use for the instance of this class. Without an @ sign
+	 * @param[in] twitterId The username of the user for the represented by this instance. no @-sign
 	 */
 	public function __construct($twitterId)
 	{
