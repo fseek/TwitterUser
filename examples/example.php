@@ -43,14 +43,14 @@ if (isset($_GET['id']))
 		exit;
 	}
 	
-	$user->getAllVars();
-	$title = 'Info for "'.$user->id.'"';
+	$title = 'Info for "'.$user->username.'"';
 	$info['profile_image'] = $user->profileImage;
 	$info['name'] = $user->name;
 	$info['screen_name'] = $user->screenName;
 	$info['location'] = $user->location;
 	$info['followers'] = $user->followers;
 	$info['description'] = $user->description;
+	$info['status'] = $user->getStatus();
 	
 	$shouldDisplayInfo = true;
 }
@@ -114,9 +114,13 @@ else
 				<td style="text-align: right;">Description</td>
 				<td style="max-width: 300px;"><?php echo $info['description']; ?></td>
 			</tr>
+			<tr>
+				<td style="text-align: right;">Status</td>
+				<td style="max-width: 300px;"><?php echo $info['status']; ?></td>
+			</tr>
 		</table>
 		<?php } else { ?>
-		<form action="twitter.php" method="get" target="_self">
+		<form action="example.php" method="get" target="_self">
 			<p>
 				Twitter ID: <input type="text" name="id" required /><br />
 				<input type="submit" value="Submit" />
