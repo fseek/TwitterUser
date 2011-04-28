@@ -125,7 +125,7 @@ class TwitterUser
 	 * This method loads the last status of this Twitter user
 	 * from Twitter and returns it as a string
 	 */
-	public function getStatus($add_hyperlinks = false)
+	public function getStatus($add_hyperlinks = true)
 	{
 		$status = $this->userInfo['status']['text'];
 		if ($add_hyperlinks)
