@@ -29,6 +29,11 @@
  * is stand-alone and has no dependencies other than PHP json support. The library
  * does not cache request because  caching belongs in the view layer rather than in
  * the data layer.
+ *
+ * \section twitter_properties Twitter JSON Properties
+ * You can easily get the values for this properties
+ * via $yourTwitterUserInstance->JsonPropertyName, 
+ * e.g. $myTwitterUser->screen_name
 */
 
 
