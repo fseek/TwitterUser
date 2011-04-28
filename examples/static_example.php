@@ -28,7 +28,7 @@ $user = new TwitterUser("bbc");
 
 echo $user->screenName.'\n';
 
-for ($user->asArray() as $var)
+foreach ($user->asArray() as $var)
 {
 	echo $var.'\n';
 }
