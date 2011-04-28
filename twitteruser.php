@@ -32,8 +32,62 @@
  *
  * \section twitter_properties Twitter JSON Properties
  * You can easily get the values for this properties
- * via $yourTwitterUserInstance->JsonPropertyName, 
- * e.g. $myTwitterUser->screen_name
+ * via '$yourTwitterUserInstance->JsonPropertyName', 
+ * e.g. '$myTwitterUser->followers_count'.
+ *
+ * (Boolean) "profile_use_background_image",
+ * (String) "location",
+ * (Boolean) "show_all_inline_media",
+ * (Boolean) "follow_request_sent",
+ * (String) "lang",
+ * (Boolean) "geo_enabled",
+ * (String, hexadecimal color) "profile_background_color",
+ * (String) "description",
+ * (Object) "status"
+ * {
+ * 		(String) "text",
+ * 		(Boolean) "truncated",
+ * 		(?) "place",
+ * 		(?) "coordinates",
+ * 		(Boolean) "favorited",
+ * 		(String) "id_str",
+ * 		(Integer) "retweet_count",
+ * 		(String) "source",
+ * 		(String) "created_at",
+ * 		(?) "geo",
+ * 		(String) "in_reply_to_screen_name",
+ * 		(String) "in_reply_to_status_id_str",
+ * 		(Array) "contributors",
+ * 		(Boolean) "retweeted",
+ * 		(Integer) "in_reply_to_status_id",
+ * 		(String) "in_reply_to_user_id_str",
+ * 		(Integer) "in_reply_to_user_id",
+ * 		(Integer, somehow) "id" 
+ * },
+ * (String) "profile_background_image_url",
+ * (String) "url",
+ * (Boolean) "verified",
+ * (String) "id_str",
+ * (Boolean) "is_translator",
+ * (Boolean) "default_profile",
+ * (Integer) "statues_count",
+ * (String) "created_at",
+ * (String, hexadecimal color) "profile_text_color",
+ * (Integer) "listed_count",
+ * (Boolean) "protected",
+ * (Boolean) "notifications",
+ * (String) "time_zone",
+ * (Integer) "friends_count",
+ * (String, hexadecimal color) "profile_link_color",
+ * (String) "profile_image_url",
+ * (String) "name",
+ * (Boolean) "default_profile_image",
+ * (String, hexadecimal color) "profile_sidebar_border_color",
+ * (Integer) "followers_count",
+ * (Integer) "id",
+ * (Boolean) "contributors_enabled",
+ * (Integer) "utc_offset",
+ * (String) "screen_name"
 */
 
 
@@ -45,6 +99,7 @@ class HTTPDownloadException extends Exception{}
  * You can get all the values that twitter returns
  * This class is used for getting information of an twitter user,
  * e.g. how many followers he has.
+ *
  */
 class TwitterUser
 {
