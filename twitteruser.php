@@ -21,6 +21,13 @@
  *
  */
 
+/*! \mainpage
+ * \section intro_sec Introduction
+ * TwitterUser is a simple PHP class for accessing
+ *
+*/
+
+
 class HTTPDownloadException extends Exception{}
 
 /*! @class TwitterUser
