@@ -33,60 +33,60 @@
  * \section twitter_properties Twitter JSON Properties
  * You can easily get the values for this properties
  * via '$yourTwitterUserInstance->JsonPropertyName', 
- * e.g. '$myTwitterUser->followers_count'.
+ * e.g. '$myTwitterUser->followers_count'. <BR><BR>
  *
- * (Boolean) "profile_use_background_image",
- * (String) "location",
- * (Boolean) "show_all_inline_media",
- * (Boolean) "follow_request_sent",
- * (String) "lang",
- * (Boolean) "geo_enabled",
- * (String, hexadecimal color) "profile_background_color",
- * (String) "description",
- * (Object) "status"
- * {
- * 		(String) "text",
- * 		(Boolean) "truncated",
- * 		(?) "place",
- * 		(?) "coordinates",
- * 		(Boolean) "favorited",
- * 		(String) "id_str",
- * 		(Integer) "retweet_count",
- * 		(String) "source",
- * 		(String) "created_at",
- * 		(?) "geo",
- * 		(String) "in_reply_to_screen_name",
- * 		(String) "in_reply_to_status_id_str",
- * 		(Array) "contributors",
- * 		(Boolean) "retweeted",
- * 		(Integer) "in_reply_to_status_id",
- * 		(String) "in_reply_to_user_id_str",
- * 		(Integer) "in_reply_to_user_id",
- * 		(Integer, somehow) "id" 
- * },
- * (String) "profile_background_image_url",
- * (String) "url",
- * (Boolean) "verified",
- * (String) "id_str",
- * (Boolean) "is_translator",
- * (Boolean) "default_profile",
- * (Integer) "statues_count",
- * (String) "created_at",
- * (String, hexadecimal color) "profile_text_color",
- * (Integer) "listed_count",
- * (Boolean) "protected",
- * (Boolean) "notifications",
- * (String) "time_zone",
- * (Integer) "friends_count",
- * (String, hexadecimal color) "profile_link_color",
- * (String) "profile_image_url",
- * (String) "name",
- * (Boolean) "default_profile_image",
- * (String, hexadecimal color) "profile_sidebar_border_color",
- * (Integer) "followers_count",
- * (Integer) "id",
- * (Boolean) "contributors_enabled",
- * (Integer) "utc_offset",
+ * (Boolean) "profile_use_background_image",<BR>
+ * (String) "location",<BR>
+ * (Boolean) "show_all_inline_media",<BR>
+ * (Boolean) "follow_request_sent",<BR>
+ * (String) "lang",<BR>
+ * (Boolean) "geo_enabled",<BR>
+ * (String, hexadecimal color) "profile_background_color",<BR>
+ * (String) "description",<BR>
+ * (Object) "status"<BR>
+ * {<BR>
+ * 		(String) "text",<BR>
+ * 		(Boolean) "truncated",<BR>
+ * 		(?) "place",<BR>
+ * 		(?) "coordinates",<BR>
+ * 		(Boolean) "favorited",<BR>
+ * 		(String) "id_str",<BR>
+ * 		(Integer) "retweet_count",<BR>
+ * 		(String) "source",<BR>
+ * 		(String) "created_at",<BR>
+ * 		(?) "geo",<BR>
+ * 		(String) "in_reply_to_screen_name",<BR>
+ * 		(String) "in_reply_to_status_id_str",<BR>
+ * 		(Array) "contributors",<BR>
+ * 		(Boolean) "retweeted",<BR>
+ * 		(Integer) "in_reply_to_status_id",<BR>
+ * 		(String) "in_reply_to_user_id_str",<BR>
+ * 		(Integer) "in_reply_to_user_id",<BR>
+ * 		(Integer, somehow) "id" <BR>
+ * },<BR>
+ * (String) "profile_background_image_url",<BR>
+ * (String) "url",<BR>
+ * (Boolean) "verified",<BR>
+ * (String) "id_str",<BR>
+ * (Boolean) "is_translator",<BR>
+ * (Boolean) "default_profile",<BR>
+ * (Integer) "statues_count",<BR>
+ * (String) "created_at",<BR>
+ * (String, hexadecimal color) "profile_text_color",<BR>
+ * (Integer) "listed_count",<BR>
+ * (Boolean) "protected",<BR>
+ * (Boolean) "notifications",<BR>
+ * (String) "time_zone",<BR>
+ * (Integer) "friends_count",<BR>
+ * (String, hexadecimal color) "profile_link_color",<BR>
+ * (String) "profile_image_url",<BR>
+ * (String) "name",<BR>
+ * (Boolean) "default_profile_image",<BR>
+ * (String, hexadecimal color) "profile_sidebar_border_color",<BR>
+ * (Integer) "followers_count",<BR>
+ * (Integer) "id",<BR>
+ * (Boolean) "contributors_enabled",<BR>
+ * (Integer) "utc_offset",<BR>
  * (String) "screen_name"
 */
 
