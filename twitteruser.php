@@ -190,10 +190,10 @@ class TwitterUser
 		return $this->userInfo;
 	}
 
-	/*! @brief Returns the last status of the Twitter user
-	 * @return A string with the last status
+	/*! @brief Returns the latest status of the Twitter user
+	 * @return A string with the latest status
 	 *
-	 * This method loads the last status of this Twitter user
+	 * This method loads the latest status of this Twitter user
 	 * from Twitter and returns it as a string
 	 */
 	public function getStatus($add_hyperlinks = true)
