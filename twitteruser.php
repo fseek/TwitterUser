@@ -25,7 +25,8 @@ class HTTPDownloadException extends Exception{}
 
 /*! @class TwitterUser
  * @brief This class represents a user on twitter
- * 
+ *
+ * You can get all the values that twitter returns
  * This class is used for getting information of an twitter user,
  * e.g. how much followers he has
  */
@@ -41,7 +42,7 @@ class TwitterUser
   public $id;
 	
 	/*! @brief The constructor of TwitterUser
-	 * @param[in] twitterId The Id of the twitter user to use for the instance of this class
+	 * @param[in] twitterId The Id of the twitter user to use for the instance of this class. Without an @ sign
 	 */
 	public function __construct($twitterId)
 	{
@@ -55,12 +56,12 @@ class TwitterUser
 	  
 	}
 	
-	/*! @brief Downloads an parses JSON files
+	/*! @brief Downloads and parses a JSON file
 	 * @param[in] url The URL of the JSON file
 	 * @return An array which content is the downloaded JSON file
-	 *
+	 * 
 	 * This method downloads a JSON file from the given URL
-	 * and parses it into an array.
+	 * and parses it into an associative array.
 	 */
 	private function downloadJSON($url)
 	{
@@ -132,7 +133,6 @@ class TwitterUser
 	  return $this->followers;
 	}
 
-	
 
 	/*! @brief Returns the last status of the Twitter user
 	 * @return A string with the last status
