@@ -107,14 +107,6 @@ class TwitterUser
 		$this->userInfo = $this->downloadJSON('http://twitter.com/users/show.json?screen_name='.$this->id);	  
 	}
 
-	/*! @brief Deprecated
-	 *
-	 * Does nothing, all vars are loaded in the constructor now
-	 */
-	public function getAllVars()
-	{
-	}
-
 	/*! @brief Returns Twitter information as an array
 	 * @return An array with the information of this Twitter user
 	 *
@@ -124,16 +116,6 @@ class TwitterUser
 	public function asArray()
 	{
 		return $this->userInfo;
-	}
-
-	/*! @brief Deprecated
-	 * @return The returned value of $instance->followers
-	 *
-	 * Deprecated, use $instance->followers instead
-	 */
-	public function getFollowers()
-	{
-		return $this->followers;
 	}
 
 	
