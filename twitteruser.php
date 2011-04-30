@@ -29,6 +29,65 @@
  * is stand-alone and has no dependencies other than PHP json support. The library
  * does not cache request because  caching belongs in the view layer rather than in
  * the data layer.
+ *
+ * \section twitter_properties Twitter JSON Properties
+ * You can easily get the values for this properties
+ * via '$yourTwitterUserInstance->JsonPropertyName', 
+ * e.g. '$myTwitterUser->followers_count'. <BR><BR>
+ *
+ * (Boolean) "profile_use_background_image",<BR>
+ * (String) "location",<BR>
+ * (Boolean) "show_all_inline_media",<BR>
+ * (Boolean) "follow_request_sent",<BR>
+ * (String) "lang",<BR>
+ * (Boolean) "geo_enabled",<BR>
+ * (String, hexadecimal color) "profile_background_color",<BR>
+ * (String) "description",<BR>
+ * (Object) "status"<BR>
+ * {<BR>
+ * 	&nbsp;&nbsp;&nbsp;&nbsp;(String) "text",<BR>
+ * 	&nbsp;&nbsp;&nbsp;&nbsp;(Boolean) "truncated",<BR>
+ * 	&nbsp;&nbsp;&nbsp;&nbsp;(?) "place",<BR>
+ * 	&nbsp;&nbsp;&nbsp;&nbsp;(?) "coordinates",<BR>
+ * 	&nbsp;&nbsp;&nbsp;&nbsp;(Boolean) "favorited",<BR>
+ * 	&nbsp;&nbsp;&nbsp;&nbsp;(String) "id_str",<BR>
+ * 	&nbsp;&nbsp;&nbsp;&nbsp;(Integer) "retweet_count",<BR>
+ * 	&nbsp;&nbsp;&nbsp;&nbsp;(String) "source",<BR>
+ * 	&nbsp;&nbsp;&nbsp;&nbsp;(String) "created_at",<BR>
+ * 	&nbsp;&nbsp;&nbsp;&nbsp;(?) "geo",<BR>
+ * 	&nbsp;&nbsp;&nbsp;&nbsp;(String) "in_reply_to_screen_name",<BR>
+ * 	&nbsp;&nbsp;&nbsp;&nbsp;(String) "in_reply_to_status_id_str",<BR>
+ * 	&nbsp;&nbsp;&nbsp;&nbsp;(Array) "contributors",<BR>
+ * 	&nbsp;&nbsp;&nbsp;&nbsp;(Boolean) "retweeted",<BR>
+ * 	&nbsp;&nbsp;&nbsp;&nbsp;(Integer) "in_reply_to_status_id",<BR>
+ * 	&nbsp;&nbsp;&nbsp;&nbsp;(String) "in_reply_to_user_id_str",<BR>
+ * 	&nbsp;&nbsp;&nbsp;&nbsp;(Integer) "in_reply_to_user_id",<BR>
+ * 	&nbsp;&nbsp;&nbsp;&nbsp;(Integer, somehow) "id" <BR>
+ * },<BR>
+ * (String) "profile_background_image_url",<BR>
+ * (String) "url",<BR>
+ * (Boolean) "verified",<BR>
+ * (String) "id_str",<BR>
+ * (Boolean) "is_translator",<BR>
+ * (Boolean) "default_profile",<BR>
+ * (Integer) "statues_count",<BR>
+ * (String) "created_at",<BR>
+ * (String, hexadecimal color) "profile_text_color",<BR>
+ * (Integer) "listed_count",<BR>
+ * (Boolean) "protected",<BR>
+ * (Boolean) "notifications",<BR>
+ * (String) "time_zone",<BR>
+ * (Integer) "friends_count",<BR>
+ * (String, hexadecimal color) "profile_link_color",<BR>
+ * (String) "profile_image_url",<BR>
+ * (String) "name",<BR>
+ * (Boolean) "default_profile_image",<BR>
+ * (String, hexadecimal color) "profile_sidebar_border_color",<BR>
+ * (Integer) "followers_count",<BR>
+ * (Integer) "id",<BR>
+ * (Boolean) "contributors_enabled",<BR>
+ * (Integer) "utc_offset",<BR>
+ * (String) "screen_name"
 */
 
 
@@ -40,6 +99,7 @@ class HTTPDownloadException extends Exception{}
  * You can get all the values that twitter returns
  * This class is used for getting information of an twitter user,
  * e.g. how many followers he has.
+ *
  */
 class TwitterUser
 {
@@ -53,7 +113,7 @@ class TwitterUser
 	protected $username;
 	
 	/*! @brief The constructor of TwitterUser
-	 * @param[in] twitterId The username of the user for the represented by this instance. no @-sign
+	 * @param[in] $twitterId The username of the user for the represented by this instance. no @-sign
 	 */
 	public function __construct($twitterId)
 	{
@@ -69,7 +129,7 @@ class TwitterUser
 	}
 	
 	/*! @brief Downloads and parses a JSON file
-	 * @param[in] url The URL of the JSON file
+	 * @param[in] $url The URL of the JSON file
 	 * @return An array which content is the downloaded JSON file
 	 * 
 	 * This method downloads a JSON file from the given URL
@@ -130,10 +190,11 @@ class TwitterUser
 		return $this->userInfo;
 	}
 
-	/*! @brief Returns the last status of the Twitter user
-	 * @return A string with the last status
+	/*! @brief Returns the latest status of the Twitter user
+	 * @param[in] $add_hyperlinks Whether getStatus() should turn links into clickable hyperlinks
+	 * @return A string with the latest status
 	 *
-	 * This method loads the last status of this Twitter user
+	 * This method loads the latest status of this Twitter user
 	 * from Twitter and returns it as a string
 	 */
 	public function getStatus($add_hyperlinks = true)
