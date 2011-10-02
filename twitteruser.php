@@ -33,7 +33,9 @@
  * \section twitter_properties Twitter JSON Properties
  * You can easily get the values for this properties
  * via '$yourTwitterUserInstance->JsonPropertyName', 
- * e.g. '$myTwitterUser->followers_count'. <BR><BR>
+ * e.g. '$myTwitterUser->followers_count'.
+ * Please keep in mind that the property list may be incomplete.
+ * It covers every property twitter returns for @notch.<BR><BR>
  *
  * (Boolean) "profile_use_background_image",<BR>
  * (String) "location",<BR>
