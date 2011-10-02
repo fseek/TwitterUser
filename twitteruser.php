@@ -35,7 +35,7 @@
  * via '$yourTwitterUserInstance->JsonPropertyName', 
  * e.g. '$myTwitterUser->followers_count'.
  * Please keep in mind that the property list may be incomplete.
- * It covers every property twitter returns for @notch.<BR><BR>
+ * It covers every property twitter returns for "notch".<BR><BR>
  *
  * (Boolean) "profile_use_background_image",<BR>
  * (String) "location",<BR>
